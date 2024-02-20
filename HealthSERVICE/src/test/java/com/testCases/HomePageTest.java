@@ -24,7 +24,7 @@ public Actions actions;
 	private Logger log = LogManager.getLogger(HomePageTest.class.getName());
 	private HashMap<String, String> data;
 
-	@BeforeTest
+	@BeforeTest(description="Initialise the drivers")
 	public void initialize() throws IOException, FilloException {
 		
 		driver = initializeDriver();
@@ -34,7 +34,7 @@ public Actions actions;
 		actions.navigateTo(prop.getProperty("url"));
 	}
 	
-	@Test
+	@Test(description="Verify the Footer on the Homepage")
 	public void checkFooter() throws IOException {
 
 		HomePage hp = new HomePage(driver);
@@ -44,7 +44,7 @@ public Actions actions;
 
 	}
 	
-	@Test
+	@Test(description="Verify the Title on the Homepage")
 	public void checkTitle() throws IOException {
 
 
@@ -58,7 +58,7 @@ public Actions actions;
 
 	}
 	
-	@AfterTest
+	@AfterTest(description="Method to close the Driver")
 	public void teardown() {
 		driver.close();
 		log.info("Driver is closed");

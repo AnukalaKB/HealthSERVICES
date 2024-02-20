@@ -27,7 +27,7 @@ public Actions actions;
 	private Logger log = LogManager.getLogger(LoginPageTest.class.getName());
 	private HashMap<String, String> data;
 
-	@BeforeTest
+	@BeforeTest(description="Initialise the drivers")
 	public void initialize() throws IOException, FilloException {
 		
 		driver = initializeDriver();
@@ -37,7 +37,7 @@ public Actions actions;
 		
 	}
 
-	@Test
+	@Test(description="Verify the Login Functionality")
 	public void performLogin() {
 		
 		HomePage hp = new HomePage(driver);
@@ -72,7 +72,7 @@ public Actions actions;
 		return data;
 	}
 
-	@AfterTest
+	@AfterTest(description="Method to close the Driver")
 	public void teardown() {
 		driver.close();
 		log.info("Driver is closed");

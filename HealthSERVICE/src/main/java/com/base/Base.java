@@ -24,14 +24,13 @@ public class Base {
 		
 		if(BrowserName.equals("chrome"))
 		{
-			//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/resources/chromedriver.exe");
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 		}else if (BrowserName.equals("firefox")) {
-			System.setProperty("webDriver.gecko.driver", System.getProperty("user.dir") + "/src/main/resources/geckodriver");
+			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 		} else  if(BrowserName.equals("ie")) {
-			System.setProperty("webDriver.ie.driver",  System.getProperty("user.dir") + "/src/main/resources/IEDriverServer");
+			WebDriverManager.iedriver().setup();
 			driver = new InternetExplorerDriver();
 		} else {
 			System.out.println(BrowserName + "is not a valid browser");

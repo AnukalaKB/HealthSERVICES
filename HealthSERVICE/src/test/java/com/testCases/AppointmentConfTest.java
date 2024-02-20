@@ -27,7 +27,7 @@ public Actions actions;
 	private Logger log = LogManager.getLogger(AppointmentConfTest.class.getName());
 	private HashMap<String, String> data;
 
-	@BeforeTest
+	@BeforeTest(description="Initialise the drivers")
 	public void initialize() throws IOException, FilloException {
 		
 		driver = initializeDriver();
@@ -64,7 +64,7 @@ public Actions actions;
 	}
 
 
-	@AfterTest
+	@AfterTest(description="Method to close the Driver")
 	public void teardown() {
 		driver.close();
 		log.info("Driver is closed");
