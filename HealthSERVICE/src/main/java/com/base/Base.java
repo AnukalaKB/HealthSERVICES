@@ -10,6 +10,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class Base {
 	
 	public static WebDriver driver;
@@ -22,7 +24,8 @@ public class Base {
 		
 		if(BrowserName.equals("chrome"))
 		{
-			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/resources/chromedriver.exe");
+			//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/resources/chromedriver.exe");
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 		}else if (BrowserName.equals("firefox")) {
 			System.setProperty("webDriver.gecko.driver", System.getProperty("user.dir") + "/src/main/resources/geckodriver");
